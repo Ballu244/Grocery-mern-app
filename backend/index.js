@@ -26,6 +26,7 @@ app.use(
   }),
 );
 app.use(cookieParser());
+app.use(express.json());
 
 app.use("/images", express.static("uploads"));
 app.use("/api/user", userRoutes);
@@ -35,9 +36,9 @@ app.use("/api/cart", cartRoutes);
 app.use("/api/order", OrderRoutes);
 app.use("/api/address", addressRoutes);
 
-// app.get("/", (req, res) => {
-//   res.send("hello backendd");
-// });
+app.get("/", (req, res) => {
+  res.send("hello backend And Backend is start");
+});
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {

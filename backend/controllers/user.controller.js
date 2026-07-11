@@ -91,15 +91,22 @@ export const loginUser = async (req, res) => {
 
 export const logoutUser = async (req, res) => {
   try {
-    res.clearCookie("token", token, {
+    res.clearCookie("token", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: process.env.NODE_ENV === "production" ? "none" : "Strict",
+      expires: new Date(0),
     });
-    res.json({ message: "User LogOut successfully", success: true });
+
+    res.json({
+      success: true,
+      message: "User Logout successfully",
+    });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({
+      message: "Internal Server Error",
+    });
   }
 };
 

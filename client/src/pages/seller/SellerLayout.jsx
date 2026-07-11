@@ -19,7 +19,7 @@ function SellerLayout() {
                     <p>Hi! Admin</p>
                     <button onClick={() => {
                         setIsSeller(false)
-                        navigate('/')
+                        navigate('/seller')
                     }} className='cursor-pointer border rounded-full text-sm px-4 py-1'>Logout</button>
                 </div>
             </div>
